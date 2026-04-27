@@ -1,0 +1,247 @@
+:root{
+    --primary: #39c465;
+    --secondary: #89e3a0;
+    --bg: #029c2a;
+    --main: #cdcaca;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.1s ease;
+}
+
+body{
+    background: linear-gradient(135deg, var(--bg),var(--primary),var(--secondary));
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: cursive;
+    align-items: center;
+}
+.add-expence-button{
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #006300,#15ff15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    bottom: 5%;
+    z-index: 10;
+    right: 5%;
+    box-shadow: black 5px 5px 15px;
+}
+.add-expence-button:hover{
+    backdrop-filter: blur(10px);
+    background: none;
+    scale: 1.04;
+}
+.add-transaction{
+    position: absolute;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: 0;
+    top: -100%;
+    
+    .add-transaction_container{
+        background: linear-gradient(45deg, #196e00,#01cc01, #29ff29);
+        height: 60%;
+        width: 70%;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--main);
+        position: relative;
+        p{
+            margin: 30px 0px 10px;
+        }
+        .check-income-expence{
+            padding: 15px;
+            width: 100%;
+            justify-content: space-around;
+            display: flex;
+            input{
+                width: 20px;
+                
+            }
+        }
+        .add-transaction_button{
+            width: 90%;
+            background: linear-gradient(45deg, #086302,#28ff28);
+            padding: 13px;
+            border-radius: 10px;
+            color: #000000;
+            border: 1px solid;
+            border-top: none;
+            cursor: pointer;
+        }
+        .cancel{
+            position: absolute;
+            top: -2%;
+            right: -2%;
+            cursor: pointer;
+            background: red;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 40px;
+        }
+        .transaction-amount,.transaction-input{
+            width: 90%;
+            height: 10%;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            padding: 0 20px;
+            background: none;
+            color: var(--text);
+            box-shadow: #4a4a4a 5px 5px 10px;
+        }
+        .transaction-amount:hover,.add-transaction_button:hover,.cancel:hover,.transaction-input:hover{
+            box-shadow: black 5px 5px 10px;
+            scale: 1.04;
+        }
+        .transaction-amount:focus,.transaction-input:focus{
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+        }
+    }
+}
+main{
+    background: var(--main);
+    width: 90%;
+    max-width: 950px;
+    padding: 4% 0;
+    height: 700px;
+    
+    .balance-container{
+        background: linear-gradient(45deg, #77ed77, #3cd333, #166b0d);
+        border-radius: 15px;
+        padding-top:10px;
+        margin: 5%;
+        h1,p{
+            color:var(--main);
+        }
+
+
+        .income-expence{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .expence ,.income{
+                width: 60%;
+                background: var(--main);
+                margin: 1.8%;
+                border-radius: 5px;
+                cursor: default;
+                padding: 1%;
+            }
+            .expence h2,.expence p{
+                color: red;
+            }
+            .income h2,.income p{
+                color: #2a9303;
+            }
+        }
+    }
+    .transaction{
+        
+        h2{
+            text-align: left;
+            color: #383838;
+            margin-left: 3%;
+        }
+        
+        .expence-container{
+            border-top: 1px solid #46e346;
+            /*border-bottom: 1px solid #46e346;   */
+            height: 200px;
+            overflow-y: auto;
+            
+            .expence{
+            width: 94%;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            background: #dedede;
+            padding: 2%;
+            margin:3%;
+            border-radius: 15px;
+            cursor: default;
+            align-items: center;
+            border-right: 5px solid red;
+            
+            .amount{
+                margin-right: 10%;
+                color: red;
+            }
+            
+            button{
+                border: none;
+                color: red;
+                font-weight:1000;
+                background: none;
+                position: absolute;
+                right: 1%;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+            
+            .expence:hover{
+                box-shadow: black 1px 1px 5px;
+            }
+            
+            .income{
+            border-color: #0be30b;
+            .amount{
+                margin-right: 10%;
+                color: #19a803;
+            }
+        }
+            
+        }
+
+        .expence-container::-webkit-scrollbar{
+            background-color: #027d1f47;
+            width: 8px;
+        }
+        .expence-container::-webkit-scrollbar-thumb{
+            background: linear-gradient(green,#34ff2b);
+            border-radius: 2px;
+        }
+    }
+}
+
+@media (max-width: 720px){
+    body .transaction {
+        .expence{
+            padding: 14px;
+        }
+    }
+}
+
+@media (max-width: 420px){
+    body{
+        font-size: 0.89rem;
+    }
+    body .add-expence-button{
+        right: 41%;
+    }
+}
